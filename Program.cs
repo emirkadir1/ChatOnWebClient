@@ -13,10 +13,10 @@ AddDefaultPolicy(policy => policy.
 AllowAnyMethod().
 AllowAnyHeader().
 AllowAnyOrigin()));
-
+builder.Services.AddHttpClient("HttpClient");
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(option =>
 {
-    option.LoginPath = "/SignIn/Index";
+    option.LoginPath = "/Home/Index";
     option.ExpireTimeSpan = TimeSpan.FromMinutes(5);
 
 });
@@ -41,6 +41,6 @@ app.UseCors();
 app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=SignIn}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

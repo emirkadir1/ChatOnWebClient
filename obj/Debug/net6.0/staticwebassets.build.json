@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vOI4KOR5LJYdBDHZbpJ3EX2HPuzC8pUzo4w9XuJvJjo=",
+  "Hash": "LQNFvQJmuSj3g1Wjtv5+lNUPfUWV0OdbvwKIx2Z+AYM=",
   "Source": "ChatOnWebClient",
   "BasePath": "_content/ChatOnWebClient",
   "Mode": "Default",
@@ -729,6 +729,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\img\\4.png",
+      "SourceId": "ChatOnWebClient",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\",
+      "BasePath": "_content/ChatOnWebClient",
+      "RelativePath": "img/4.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\4.png"
     },
     {
       "Identity": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\js\\bootstrap.bundle.js",
