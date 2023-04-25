@@ -9,69 +9,69 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ChatOnWebClient
 build_property.RootNamespace = ChatOnWebClient
-build_property.ProjectDir = C:\Users\Emir\Desktop\ChatOnWebClient\
+build_property.ProjectDir = C:\Users\onurk\OneDrive\Masaüstü\ChatOnProje\ChatOnWebClient\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Emir\Desktop\ChatOnWebClient
+build_property.MSBuildProjectDirectory = C:\Users\onurk\OneDrive\Masaüstü\ChatOnProje\ChatOnWebClient
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Emir/Desktop/ChatOnWebClient/Views/Home/EditProfile.cshtml]
+[C:/Users/onurk/OneDrive/Masaüstü/ChatOnProje/ChatOnWebClient/Views/Home/EditProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0UHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Emir/Desktop/ChatOnWebClient/Views/Home/FirstTimeEditProfile.cshtml]
+[C:/Users/onurk/OneDrive/Masaüstü/ChatOnProje/ChatOnWebClient/Views/Home/FirstTimeEditProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxGaXJzdFRpbWVFZGl0UHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Emir/Desktop/ChatOnWebClient/Views/Home/FriendShip.cshtml]
+[C:/Users/onurk/OneDrive/Masaüstü/ChatOnProje/ChatOnWebClient/Views/Home/FriendShip.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxGcmllbmRTaGlwLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Emir/Desktop/ChatOnWebClient/Views/Home/Index.cshtml]
+[C:/Users/onurk/OneDrive/Masaüstü/ChatOnProje/ChatOnWebClient/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Emir/Desktop/ChatOnWebClient/Views/Home/Login.cshtml]
+[C:/Users/onurk/OneDrive/Masaüstü/ChatOnProje/ChatOnWebClient/Views/Home/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Emir/Desktop/ChatOnWebClient/Views/Home/Message.cshtml]
+[C:/Users/onurk/OneDrive/Masaüstü/ChatOnProje/ChatOnWebClient/Views/Home/Message.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNZXNzYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Emir/Desktop/ChatOnWebClient/Views/Home/Message2.cshtml]
+[C:/Users/onurk/OneDrive/Masaüstü/ChatOnProje/ChatOnWebClient/Views/Home/Message2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNZXNzYWdlMi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Emir/Desktop/ChatOnWebClient/Views/Home/Register.cshtml]
+[C:/Users/onurk/OneDrive/Masaüstü/ChatOnProje/ChatOnWebClient/Views/Home/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Emir/Desktop/ChatOnWebClient/Views/Home/SetProfile.cshtml]
+[C:/Users/onurk/OneDrive/Masaüstü/ChatOnProje/ChatOnWebClient/Views/Home/SetProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZXRQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Emir/Desktop/ChatOnWebClient/Views/Home/UserProfile.cshtml]
+[C:/Users/onurk/OneDrive/Masaüstü/ChatOnProje/ChatOnWebClient/Views/Home/UserProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxVc2VyUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Emir/Desktop/ChatOnWebClient/Views/Shared/Error.cshtml]
+[C:/Users/onurk/OneDrive/Masaüstü/ChatOnProje/ChatOnWebClient/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Emir/Desktop/ChatOnWebClient/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/onurk/OneDrive/Masaüstü/ChatOnProje/ChatOnWebClient/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Emir/Desktop/ChatOnWebClient/Views/_ViewImports.cshtml]
+[C:/Users/onurk/OneDrive/Masaüstü/ChatOnProje/ChatOnWebClient/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Emir/Desktop/ChatOnWebClient/Views/_ViewStart.cshtml]
+[C:/Users/onurk/OneDrive/Masaüstü/ChatOnProje/ChatOnWebClient/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Emir/Desktop/ChatOnWebClient/Views/Shared/_Layout.cshtml]
+[C:/Users/onurk/OneDrive/Masaüstü/ChatOnProje/ChatOnWebClient/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-1a2dk5w61a
