@@ -83,12 +83,20 @@
             userList.innerHTML = "";
             usersList.forEach(function (user) {
                 const listItem = document.createElement("li");
-                if (user.online) {
-                    var str = `<li class="clearfix" id="user" onclick="getUser(this)"><img src="${user.imageUrl}" alt="avatar"><div class="about"><div class="name" id="userName"> ${user.userName}</div><div class="row p-1"></div><div class="status"> <i class="fa fa-circle online"></i></div><div id="sideMessage"></div></div></li> `
+                if(user.userName == joinedUser )
+                {
+
                 }
-                else {
-                    var str = `<li class="clearfix" id="user" onclick="getUser(this)"><img src="${user.imageUrl}" alt="avatar"><div class="about"><div class="name" id="userName"> ${user.userName}</div><div class="row p-1"></div><div class="status"> <i class="fa fa-circle offline"></i></div><div id="sideMessage"></div></div></li> `
+                else
+                {
+                    if (user.online) {
+                        var str = `<li class="clearfix" id="user" onclick="getUser(this)"><img src="${user.imageUrl}" alt="avatar"><div class="about"><div class="name" id="userName"> ${user.userName}</div><div class="row p-1"></div><div class="status"> <i class="fa fa-circle online"></i></div><div id="sideMessage"></div></div></li> `
+                    }
+                    else {
+                        var str = `<li class="clearfix" id="user" onclick="getUser(this)"><img src="${user.imageUrl}" alt="avatar"><div class="about"><div class="name" id="userName"> ${user.userName}</div><div class="row p-1"></div><div class="status"> <i class="fa fa-circle offline"></i></div><div id="sideMessage"></div></div></li> `
+                    }
                 }
+                
 
                 listItem.innerHTML = str;
                 userList.appendChild(listItem);
