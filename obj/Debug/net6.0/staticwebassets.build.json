@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LQNFvQJmuSj3g1Wjtv5+lNUPfUWV0OdbvwKIx2Z+AYM=",
+  "Hash": "0fPsJczyWJpCH+v17Kva0uoSBvltHHdViiI7rnZj2vg=",
   "Source": "ChatOnWebClient",
   "BasePath": "_content/ChatOnWebClient",
   "Mode": "Default",
@@ -663,6 +663,23 @@
       "OriginalItemSpec": "wwwroot\\css\\loader.css"
     },
     {
+      "Identity": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\css\\login-register.css",
+      "SourceId": "ChatOnWebClient",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\",
+      "BasePath": "_content/ChatOnWebClient",
+      "RelativePath": "css/login-register.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\login-register.css"
+    },
+    {
       "Identity": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\css\\message.css",
       "SourceId": "ChatOnWebClient",
       "SourceType": "Discovered",
@@ -967,6 +984,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\chat.js"
+    },
+    {
+      "Identity": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\js\\login-register.js",
+      "SourceId": "ChatOnWebClient",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\",
+      "BasePath": "_content/ChatOnWebClient",
+      "RelativePath": "js/login-register.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\login-register.js"
     },
     {
       "Identity": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\js\\message.js",

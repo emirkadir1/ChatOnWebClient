@@ -149,6 +149,10 @@
       "PackagePath": "staticwebassets\\css\\loader.css"
     },
     {
+      "Id": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\css\\login-register.css",
+      "PackagePath": "staticwebassets\\css\\login-register.css"
+    },
+    {
       "Id": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\css\\message.css",
       "PackagePath": "staticwebassets\\css\\message.css"
     },
@@ -219,6 +223,10 @@
     {
       "Id": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\js\\chat.js",
       "PackagePath": "staticwebassets\\js\\chat.js"
+    },
+    {
+      "Id": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\js\\login-register.js",
+      "PackagePath": "staticwebassets\\js\\login-register.js"
     },
     {
       "Id": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\js\\message.js",
