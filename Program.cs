@@ -17,8 +17,7 @@ builder.Services.AddHttpClient("HttpClient");
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(option =>
 {
     option.LoginPath = "/Home/Index";
-    option.ExpireTimeSpan = TimeSpan.FromMinutes(5);
-
+    option.ExpireTimeSpan = TimeSpan.FromMinutes(5);  
 });
 var app = builder.Build();
 

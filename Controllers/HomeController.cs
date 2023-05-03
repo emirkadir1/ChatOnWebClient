@@ -20,6 +20,8 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 
 using Microsoft.AspNetCore.SignalR.Client;
 using ChatOnWebApi.Services;
+using NuGet.Protocol.Plugins;
+using Microsoft.AspNetCore.Http;
 
 namespace ChatOnWebClient.Controllers
 {
@@ -177,7 +179,7 @@ namespace ChatOnWebClient.Controllers
             AuthenticationProperties properties = new AuthenticationProperties()
             {
                 AllowRefresh = true,
-                IsPersistent = false
+                IsPersistent = false,                               
             };
             HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), properties);
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwt);
@@ -205,7 +207,7 @@ namespace ChatOnWebClient.Controllers
 
         //Sign In Olmuş Kullanıcı
         [Authorize]
-        public IActionResult Message()
+        public async Task<IActionResult> Message()
         {
 
             var userName= HttpContext.User.Identity.Name;
@@ -213,13 +215,23 @@ namespace ChatOnWebClient.Controllers
             {
                 ViewBag.UserName = userName;
             }
+            var getUser = await _httpClient.GetAsync($"https://localhost:7212/api/User/{userName}");
+            string content = await getUser.Content.ReadAsStringAsync();
+            User user = JsonConvert.DeserializeObject<User>(content);
+            ViewBag.User = user;
             return View();
         }
         [Authorize]
         [Route("{userName}")]
         public async Task<IActionResult> UserProfile(string userName)
         {
-            
+            var usersName = HttpContext.User.Identity.Name;
+            ViewBag.UserName = userName;
+            var getUser = await _httpClient.GetAsync($"https://localhost:7212/api/User/{usersName}");
+            string contentt = await getUser.Content.ReadAsStringAsync();
+            User user = JsonConvert.DeserializeObject<User>(contentt);
+            //For Layout.cs html
+            ViewBag.User = user;
             var response = await _httpClient.GetAsync($"https://localhost:7212/api/User/{userName}");
             string content = await response.Content.ReadAsStringAsync();
             if(string.IsNullOrEmpty(content)) 
@@ -228,8 +240,8 @@ namespace ChatOnWebClient.Controllers
             }
             else
             {
-                User user = JsonConvert.DeserializeObject<User>(content);
-                return View(user);
+                User userProfile = JsonConvert.DeserializeObject<User>(content);
+                return View(userProfile);
             }      
         }
 
@@ -238,9 +250,19 @@ namespace ChatOnWebClient.Controllers
             return View();
         }
         [Authorize]
-        public IActionResult EditProfile()
+        public async Task<IActionResult> EditProfile()
         {
-            return View();
+            var userName = HttpContext.User.Identity.Name;
+            if (userName != null)
+            {
+                ViewBag.UserName = userName;
+            }
+            var getUser = await _httpClient.GetAsync($"https://localhost:7212/api/User/{userName}");
+            string content = await getUser.Content.ReadAsStringAsync();
+            User user = JsonConvert.DeserializeObject<User>(content);
+            ViewBag.User = user;
+            ViewBag.UserName = user.UserName;
+            return View(user);
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
@@ -248,14 +270,19 @@ namespace ChatOnWebClient.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
         [Authorize]
-        public IActionResult FriendShip()
+        public async Task<IActionResult> FriendShip()
         {
             var userName = HttpContext.User.Identity.Name;
             if (userName != null)
             {
                 ViewBag.UserName = userName;
             }
+            var getUser = await _httpClient.GetAsync($"https://localhost:7212/api/User/{userName}");
+            string content = await getUser.Content.ReadAsStringAsync();
+            User user = JsonConvert.DeserializeObject<User>(content);
+            ViewBag.User = user;
             return View();
         }
+
     }
 }

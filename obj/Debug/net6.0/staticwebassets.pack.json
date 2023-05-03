@@ -233,6 +233,10 @@
       "PackagePath": "staticwebassets\\js\\message.js"
     },
     {
+      "Id": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\js\\profile.js",
+      "PackagePath": "staticwebassets\\js\\profile.js"
+    },
+    {
       "Id": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\js\\signalr\\dist\\browser\\signalr.js",
       "PackagePath": "staticwebassets\\js\\signalr\\dist\\browser\\signalr.js"
     },

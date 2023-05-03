@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0fPsJczyWJpCH+v17Kva0uoSBvltHHdViiI7rnZj2vg=",
+  "Hash": "OMf90DWOT/QW2p2UaVGV/iBLZLbaZ6Y4STOnrtFcrlE=",
   "Source": "ChatOnWebClient",
   "BasePath": "_content/ChatOnWebClient",
   "Mode": "Default",
@@ -1018,6 +1018,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\message.js"
+    },
+    {
+      "Identity": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\js\\profile.js",
+      "SourceId": "ChatOnWebClient",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\",
+      "BasePath": "_content/ChatOnWebClient",
+      "RelativePath": "js/profile.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\profile.js"
     },
     {
       "Identity": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\js\\signalr\\dist\\browser\\signalr.js",

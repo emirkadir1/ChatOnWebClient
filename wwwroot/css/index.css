@@ -1,15 +1,7 @@
-﻿body {
-    background-color: white;
-}
-
-
-.card {
+﻿.card {
     width: 400px;
     border: none;
 }
-
-
-
 
 .btr {
     border-top-right-radius: 5px !important;

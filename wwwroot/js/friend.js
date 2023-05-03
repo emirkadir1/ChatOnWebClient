@@ -14,18 +14,15 @@ connection.start().then(function () {
 connection.on("Users", function (usersList, friendsList, friendRequest) {
     const userList = document.getElementById("Users");
     userList.innerHTML = "";
-    for (var i = 0; i < friendsList.length; i++)
-    {
-        for (var j = 0; j < usersList.length; j++)
-        {
-            if (friendsList[i].userName == usersList[j].userName)
-            {
+    for (var i = 0; i < friendsList.length; i++) {
+        for (var j = 0; j < usersList.length; j++) {
+            if (friendsList[i].userName == usersList[j].userName) {
                 const listItem = document.createElement("tr");
                 listItem.classList.add("candidates-list");
                 var str = `                            
                              <td class="title">
                                  <div class="thumb">
-                                     <img class="img-fluid" src="${usersList[j].imageUrl}">
+                                     <img class="img-fluid " src="${usersList[j].imageUrl}">
                                  </div>
                                  <div class="candidate-list-details">
                                      <div class="candidate-list-info">
@@ -40,12 +37,8 @@ connection.on("Users", function (usersList, friendsList, friendRequest) {
                                      </div>
                                  </div>
                              </td>
-                             <td class="candidate-list-favourite-time text-center">
-                               <i class="fa fa-circle online"></i>
-                                 <span class="candidate-list-time order-1">Online</span>
-                             </td>
                              <td id="button">
-                                     <button class="btn btn-danger" onclick=removeFriend(this) id="remove-friend">Remove Friend</button>
+                                     <button class="btn btn-danger" onclick=removeFriend(this) id="remove-friend">Arkadaşlıktan Çıkar</button>
                              </td>                             
                         `
                 listItem.innerHTML = str;
@@ -77,12 +70,8 @@ connection.on("Users", function (usersList, friendsList, friendRequest) {
                                      </div>
                                  </div>
                              </td>
-                             <td class="candidate-list-favourite-time text-center">
-                               <i class="fa fa-circle online"></i>
-                                 <span class="candidate-list-time order-1">Online</span>
-                             </td>
                              <td id="button">
-                                     <button class="btn btn-secondary" onclick="removeRequest(this)" id="remove-request">Remove Request</button>
+                                     <button class="btn btn-secondary" onclick="removeRequest(this)" id="remove-request">İsteği Kaldır</button>
                              </td>                             
                         `
                 listItem.innerHTML = str;
@@ -110,17 +99,13 @@ connection.on("Users", function (usersList, friendsList, friendRequest) {
                                      </div>
                                  </div>
                              </td>
-                             <td class="candidate-list-favourite-time text-center">
-                               <i class="fa fa-circle online"></i>
-                                 <span class="candidate-list-time order-1">Online</span>
-                             </td>
                              <td id="button">
-                                    <button class="btn btn-dark" onclick="accept(this)" id="accept-friend">Accept</button>
+                                    <button class="btn btn-dark" onclick="accept(this)" id="accept-friend">Kabul Et</button>
                              </td>                             
                         `
                 listItem.innerHTML = str;
                 userList.appendChild(listItem);
-                usersList.splice(j,1);
+                usersList.splice(j, 1);
             }
         }
     }
@@ -129,10 +114,9 @@ connection.on("Users", function (usersList, friendsList, friendRequest) {
         if (user.userName == joinedUser) {
 
         }
-        else
-        {                        
-                    listItem.classList.add("candidates-list");
-                    var str = `
+        else {
+            listItem.classList.add("candidates-list");
+            var str = `
                             
                              <td class="title">
                                  <div class="thumb">
@@ -151,25 +135,21 @@ connection.on("Users", function (usersList, friendsList, friendRequest) {
                                      </div>
                                  </div>
                              </td>
-                             <td class="candidate-list-favourite-time text-center">
-                               <i class="fa fa-circle online"></i>
-                                 <span class="candidate-list-time order-1">Online</span>
-                             </td>
                              <td id="button">
-                                     <button class="btn btn-primary" onclick="addFriend(this)" id="add-friend">Add Friend</button>
+                                     <button class="btn btn-primary" onclick="addFriend(this)" id="add-friend">Arkadaş Ekle</button>
                              </td>
                              
                         `
-                    listItem.innerHTML = str;
-                    userList.appendChild(listItem);                                                                                
-        }              
+            listItem.innerHTML = str;
+            userList.appendChild(listItem);
+        }
     });
 });
 function addFriend(button) {
     var div = button.parentNode;
     var divv = div.parentNode;
     div.innerHTML = "";
-    var str = `<button class="btn btn-secondary" onclick="removeRequest(this)" id="remove-request">Remove Request</button>`;
+    var str = `<button class="btn btn-secondary" onclick="removeRequest(this)" id="remove-request">İsteği Kaldır</button>`;
     div.innerHTML = str;
     button.innerHTML = "";
 
@@ -184,7 +164,7 @@ function removeRequest(button) {
     var div = button.parentNode;
     var divv = div.parentNode;
     div.innerHTML = "";
-    var str = `<button class="btn btn-primary" onclick="addFriend(this)" id="add-friend">Add Friend</button>`;
+    var str = `<button class="btn btn-primary" onclick="addFriend(this)" id="add-friend">Arkadaş Ekle</button>`;
     div.innerHTML = str;
     button.innerHTML = "";
     const userNameElement = divv.querySelector('#userName');
@@ -198,7 +178,7 @@ function accept(button) {
     var div = button.parentNode;
     var divv = div.parentNode;
     div.innerHTML = "";
-    var str = `<button class="btn btn-danger" onclick=removeFriend(this) id="remove-friend">Remove Friend</button>`;
+    var str = `<button class="btn btn-danger" onclick=removeFriend(this) id="remove-friend">Arkadaşlıktan Çıkar</button>`;
     div.innerHTML = str;
     button.innerHTML = "";
     const userNameElement = divv.querySelector('#userName');
@@ -212,7 +192,7 @@ function removeFriend(button) {
     var div = button.parentNode;
     var divv = div.parentNode;
     div.innerHTML = "";
-    var str = `<button class="btn btn-primary" onclick="addFriend(this)" id="add-friend">Add Friend</button>`;
+    var str = `<button class="btn btn-primary" onclick="addFriend(this)" id="add-friend">Arkadaş Ekle</button>`;
     div.innerHTML = str;
     button.innerHTML = "";
     const userNameElement = divv.querySelector('#userName');
@@ -259,9 +239,9 @@ connection.on("AcceptFriend", function (userName) {
         if (_userName.trim() == userName.trim()) {
             var button = users[i].querySelector('#button');
             button.innerHTML = "";
-            var str = '<button class="btn btn-danger" onclick=removeFriend(this) id="remove-friend">Remove Friend</button>';
+            var str = '<button class="btn btn-danger" onclick=removeFriend(this) id="remove-friend">Arkadaşlıktan Çıkar</button>';
             button.innerHTML = str;
-        }    
+        }
     }
 });
 connection.on("AcceptButton", function (userName) {
@@ -274,7 +254,7 @@ connection.on("AcceptButton", function (userName) {
         if (_userName.trim() == userName.trim()) {
             var button = users[i].querySelector('#button');
             button.innerHTML = "";
-            var str = '<button class="btn btn-dark" onclick="accept(this)" id="accept-friend">Accept</button>';
+            var str = '<button class="btn btn-dark" onclick="accept(this)" id="accept-friend">Kabul Et</button>';
             button.innerHTML = str;
         }
     }
@@ -289,7 +269,7 @@ connection.on("RemoveRequest", function (userName) {
         if (_userName.trim() == userName.trim()) {
             var button = users[i].querySelector('#button');
             button.innerHTML = "";
-            var str = '<button class="btn btn-primary" onclick="addFriend(this)" id="add-friend">Add Friend</button>';
+            var str = '<button class="btn btn-primary" onclick="addFriend(this)" id="add-friend">Arkadaş Ekle</button>';
             button.innerHTML = str;
         }
     }
@@ -304,7 +284,7 @@ connection.on("RemoveFriend", function (userName) {
         if (_userName.trim() == userName.trim()) {
             var button = users[i].querySelector('#button');
             button.innerHTML = "";
-            var str = '<button class="btn btn-primary" onclick="addFriend(this)" id="add-friend">Add Friend</button>';
+            var str = '<button class="btn btn-primary" onclick="addFriend(this)" id="add-friend">Arkadaş Ekle</button>';
             button.innerHTML = str;
         }
     }

@@ -3,40 +3,48 @@
 *@
 @{
 }
+@section Styles{
+    <style>
+
+        .my-custom-scrollbar {
+            position: relative;
+            height: 600px;
+            overflow: auto;
+        }
+
+        .table-wrapper-scroll-y {
+            display: block;
+        }
+    </style>
+}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
 <link rel="stylesheet" href="~/css/friendship.css" />
 <div class="container mt-3 mb-4">
-    <div class="col-lg-9 mt-4 mt-lg-0">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
-                    <div style="width:50px">
-                        <span class="input-group-text" id="input"><i class="fa fa-search"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Search..." id="searchInput">
-                    <table class="table manage-candidates-top mb-0">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
+
+                <div style="width:300px; float:left; margin-top:200px;">
+                    <h2 style="color:blue;">Friend Add</h2>
+                    <input type="text" class="form-control mt-3" style="width:200px;" placeholder="Search..." id="searchInput">
+                    <button type="button" class="btn btn-primary mt-1 btn-sm" style="width:200px;">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+
+                <div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+                    <table class="table table-bordered table-striped mb-0">
                         <thead>
                             <tr>
                                 <th> Name</th>
-                                <th class="text-center">Status</th>
                                 <th class="action text-right">Action</th>
                             </tr>
                         </thead>
                         <tbody id="Users">
-                           
                         </tbody>
                     </table>
-                    <div class="text-center mt-3 mt-sm-3">
-                        <ul class="pagination justify-content-center mb-0">
-                            <li class="page-item disabled"> <span class="page-link">Prev</span> </li>
-                            <li class="page-item active" aria-current="page"><span class="page-link">1 </span> <span class="sr-only">(current)</span></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">...</a></li>
-                            <li class="page-item"><a class="page-link" href="#">25</a></li>
-                            <li class="page-item"> <a class="page-link" href="#">Next</a> </li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
@@ -45,9 +53,9 @@
 <script src="~/js/signalr/dist/browser/signalr.js"></script>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 @section scripts {
-<script >
-    var joinedUser = '@ViewBag.UserName';
+    <script>
+        var joinedUser = '@ViewBag.UserName';
 
-</script>
-<script src="~/js/friend.js"></script>
+    </script>
+    <script src="~/js/friend.js"></script>
 }

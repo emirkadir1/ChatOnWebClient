@@ -8,13 +8,11 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\js\friend.js" />
-    <Content Remove="wwwroot\js\index2.js" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="wwwroot\js\friend.js" />
     <None Include="wwwroot\js\chat.js" />
-    <None Include="wwwroot\js\index2.js" />
     <None Include="wwwroot\js\message.js" />
     <None Include="wwwroot\js\signalr\dist\browser\signalr.js" />
     <None Include="wwwroot\js\signalr\dist\browser\signalr.min.js" />
