@@ -12,6 +12,7 @@ connection.start().then(function () {
 });
 connection.on("FriendList", function (friendList) {
     const userList = document.getElementById("Users");
+    document.getElementById("friends").innerText = friendList.length;
     friendList.forEach(function (user) {
         const listItem = document.createElement("div");
         if (user.userName == joinedUser) {

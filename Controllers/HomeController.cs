@@ -1,27 +1,16 @@
 ﻿using ChatOnWebClient.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using System.Net.Http;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Authentication;
-using System.Text.Json;
 using System.Text;
-using NuGet.Common;
 using Microsoft.AspNetCore.Authorization;
 using System.Net.Http.Headers;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using Newtonsoft.Json.Linq;
-using Microsoft.AspNetCore.DataProtection.KeyManagement;
-using System.Xml.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.AspNetCore.Authentication.Cookies;
-
-using Microsoft.AspNetCore.SignalR.Client;
-using ChatOnWebApi.Services;
-using NuGet.Protocol.Plugins;
-using Microsoft.AspNetCore.Http;
 
 namespace ChatOnWebClient.Controllers
 {

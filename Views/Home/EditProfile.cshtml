@@ -81,7 +81,7 @@
 </div>
 @section scripts {
     <script>
-        var userName = @ViewBag.UserName;
+        var userName = '@ViewBag.UserName';
         document.getElementById("SetProfile").addEventListener("click", function (event) {
             var email = document.getElementById("email").value;
             var firstName = document.getElementById("firstName").value;

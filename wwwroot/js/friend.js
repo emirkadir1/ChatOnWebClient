@@ -26,7 +26,7 @@ connection.on("Users", function (usersList, friendsList, friendRequest) {
                                  </div>
                                  <div class="candidate-list-details">
                                      <div class="candidate-list-info">
-                                         <div class="candidate-list-title">
+                                         <div class="candidate-list-title" id="Users">
                                              <h5 class="mb-0" id="userName"><a href="/${usersList[j].userName}">${usersList[j].userName}</a></h5>
                                          </div>
                                          <div class="candidate-list-option">
@@ -59,7 +59,7 @@ connection.on("Users", function (usersList, friendsList, friendRequest) {
                                  </div>
                                  <div class="candidate-list-details">
                                      <div class="candidate-list-info">
-                                         <div class="candidate-list-title">
+                                         <div class="candidate-list-title" id="Users">
                                              <h5 class="mb-0" id="userName"><a href="/${usersList[j].userName}">${usersList[j].userName}</a></h5>
                                          </div>
                                          <div class="candidate-list-option">
@@ -88,7 +88,7 @@ connection.on("Users", function (usersList, friendsList, friendRequest) {
                                  </div>
                                  <div class="candidate-list-details">
                                      <div class="candidate-list-info">
-                                         <div class="candidate-list-title">
+                                         <div class="candidate-list-title" id="Users">
                                              <h5 class="mb-0" id="userName"><a href="/${usersList[j].userName}">${usersList[j].userName}</a></h5>
                                          </div>
                                          <div class="candidate-list-option">
@@ -124,7 +124,7 @@ connection.on("Users", function (usersList, friendsList, friendRequest) {
                                  </div>
                                  <div class="candidate-list-details">
                                      <div class="candidate-list-info">
-                                         <div class="candidate-list-title">
+                                         <div class="candidate-list-title" id="Users">
                                              <h5 class="mb-0" id="userName"><a href="/${user.userName}">${user.userName}</a></h5>
                                          </div>
                                          <div class="candidate-list-option">
@@ -205,14 +205,14 @@ function removeFriend(button) {
 //User filter
 // search inputunu ve ul etiketini yakala
 const searchInput = document.getElementById('searchInput');
-const _userList = document.getElementById('users');
+const _userList = document.getElementById('Users');
 
 // search inputunda herhangi bir değer değiştiğinde çalışacak fonksiyonu tanımla
 searchInput.addEventListener('input', function (event) {
     // girilen değeri al
     const searchText = event.target.value.toLowerCase();
     // li elementlerini al
-    const users = _userList.getElementsByTagName('li');
+    const users = _userList.getElementsByClassName("candidates-list");
 
     // her bir li elementinin içindeki userName div elementini kontrol et
     for (let i = 0; i < users.length; i++) {
@@ -222,10 +222,11 @@ searchInput.addEventListener('input', function (event) {
         // girilen değer ile userName içindeki text karşılaştır
         if (nameValue.includes(searchText)) {
             // eşleşme varsa li elementini görünür yap
-            users[i].style.display = 'block';
+            
+            users[i].style.display = 'table-row';
         } else {
             // eşleşme yoksa li elementini gizle
-            users[i].style.display = 'none';
+            users[i].style.display = 'none';            
         }
     }
 });
