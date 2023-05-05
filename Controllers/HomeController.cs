@@ -233,11 +233,6 @@ namespace ChatOnWebClient.Controllers
                 return View(userProfile);
             }      
         }
-
-        public IActionResult Message2()
-        {
-            return View();
-        }
         [Authorize]
         public async Task<IActionResult> EditProfile()
         {

@@ -40,11 +40,11 @@
                     <h4>@Model.UserName</h4>
 
                     <p>
-                        @Model.FirstName @Model.LastName
-                        @Model.Email
+                        <div class="mb-1"><i class="fa fa-user fa-fw text-muted"></i> @Model.FirstName @Model.LastName</div>
+                        <div class="mb-1"><i class="fa fa-envelope fa-fw text-muted"></i> @Model.Email</div>
                     </p>
-                    <div class="mb-1"><i class="fa fa-map-marker-alt fa-fw text-muted"></i> @Model.BirthDay</div>
-                    <div class="mb-3"><i class="fa fa-link fa-fw text-muted"></i> @Model.PhoneNumber</div>
+                    <div class="mb-1"><i class="fa fa-birthday-cake fa-fw text-muted"></i> @Model.BirthDay</div>
+                    <div class="mb-3"><i class="fa fa-phone fa-fw text-muted"></i> @Model.PhoneNumber</div>
                     <hr class="mt-4 mb-4" />
                 </div>
             </div>

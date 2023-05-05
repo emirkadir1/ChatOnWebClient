@@ -38,7 +38,7 @@ connection.on("Users", function (usersList, friendsList, friendRequest) {
                                  </div>
                              </td>
                              <td id="button">
-                                     <button class="btn btn-danger" onclick=removeFriend(this) id="remove-friend">Arkadaşlıktan Çıkar</button>
+                                     <button class="btn btn-danger" onclick=removeFriend(this) id="remove-friend">Remove friend</button>
                              </td>                             
                         `
                 listItem.innerHTML = str;
@@ -71,7 +71,7 @@ connection.on("Users", function (usersList, friendsList, friendRequest) {
                                  </div>
                              </td>
                              <td id="button">
-                                     <button class="btn btn-secondary" onclick="removeRequest(this)" id="remove-request">İsteği Kaldır</button>
+                                     <button class="btn btn-secondary" onclick="removeRequest(this)" id="remove-request">Remove request</button>
                              </td>                             
                         `
                 listItem.innerHTML = str;
@@ -100,7 +100,7 @@ connection.on("Users", function (usersList, friendsList, friendRequest) {
                                  </div>
                              </td>
                              <td id="button">
-                                    <button class="btn btn-dark" onclick="accept(this)" id="accept-friend">Kabul Et</button>
+                                    <button class="btn btn-dark" onclick="accept(this)" id="accept-friend">Accept</button>
                              </td>                             
                         `
                 listItem.innerHTML = str;
@@ -136,7 +136,7 @@ connection.on("Users", function (usersList, friendsList, friendRequest) {
                                  </div>
                              </td>
                              <td id="button">
-                                     <button class="btn btn-primary" onclick="addFriend(this)" id="add-friend">Arkadaş Ekle</button>
+                                     <button class="btn btn-primary" onclick="addFriend(this)" id="add-friend">Add to friend</button>
                              </td>
                              
                         `
@@ -149,7 +149,7 @@ function addFriend(button) {
     var div = button.parentNode;
     var divv = div.parentNode;
     div.innerHTML = "";
-    var str = `<button class="btn btn-secondary" onclick="removeRequest(this)" id="remove-request">İsteği Kaldır</button>`;
+    var str = `<button class="btn btn-secondary" onclick="removeRequest(this)" id="remove-request">Remove request</button>`;
     div.innerHTML = str;
     button.innerHTML = "";
 
@@ -164,7 +164,7 @@ function removeRequest(button) {
     var div = button.parentNode;
     var divv = div.parentNode;
     div.innerHTML = "";
-    var str = `<button class="btn btn-primary" onclick="addFriend(this)" id="add-friend">Arkadaş Ekle</button>`;
+    var str = `<button class="btn btn-primary" onclick="addFriend(this)" id="add-friend">Add to friend</button>`;
     div.innerHTML = str;
     button.innerHTML = "";
     const userNameElement = divv.querySelector('#userName');
@@ -178,7 +178,7 @@ function accept(button) {
     var div = button.parentNode;
     var divv = div.parentNode;
     div.innerHTML = "";
-    var str = `<button class="btn btn-danger" onclick=removeFriend(this) id="remove-friend">Arkadaşlıktan Çıkar</button>`;
+    var str = `<button class="btn btn-danger" onclick=removeFriend(this) id="remove-friend">Remove friend</button>`;
     div.innerHTML = str;
     button.innerHTML = "";
     const userNameElement = divv.querySelector('#userName');
@@ -192,7 +192,7 @@ function removeFriend(button) {
     var div = button.parentNode;
     var divv = div.parentNode;
     div.innerHTML = "";
-    var str = `<button class="btn btn-primary" onclick="addFriend(this)" id="add-friend">Arkadaş Ekle</button>`;
+    var str = `<button class="btn btn-primary" onclick="addFriend(this)" id="add-friend">Add to friend</button>`;
     div.innerHTML = str;
     button.innerHTML = "";
     const userNameElement = divv.querySelector('#userName');
@@ -240,7 +240,7 @@ connection.on("AcceptFriend", function (userName) {
         if (_userName.trim() == userName.trim()) {
             var button = users[i].querySelector('#button');
             button.innerHTML = "";
-            var str = '<button class="btn btn-danger" onclick=removeFriend(this) id="remove-friend">Arkadaşlıktan Çıkar</button>';
+            var str = '<button class="btn btn-danger" onclick=removeFriend(this) id="remove-friend">Remove friend</button>';
             button.innerHTML = str;
         }
     }
@@ -255,7 +255,7 @@ connection.on("AcceptButton", function (userName) {
         if (_userName.trim() == userName.trim()) {
             var button = users[i].querySelector('#button');
             button.innerHTML = "";
-            var str = '<button class="btn btn-dark" onclick="accept(this)" id="accept-friend">Kabul Et</button>';
+            var str = '<button class="btn btn-dark" onclick="accept(this)" id="accept-friend">Accept</button>';
             button.innerHTML = str;
         }
     }
@@ -270,7 +270,7 @@ connection.on("RemoveRequest", function (userName) {
         if (_userName.trim() == userName.trim()) {
             var button = users[i].querySelector('#button');
             button.innerHTML = "";
-            var str = '<button class="btn btn-primary" onclick="addFriend(this)" id="add-friend">Arkadaş Ekle</button>';
+            var str = '<button class="btn btn-primary" onclick="addFriend(this)" id="add-friend">Add to friend</button>';
             button.innerHTML = str;
         }
     }
@@ -285,7 +285,7 @@ connection.on("RemoveFriend", function (userName) {
         if (_userName.trim() == userName.trim()) {
             var button = users[i].querySelector('#button');
             button.innerHTML = "";
-            var str = '<button class="btn btn-primary" onclick="addFriend(this)" id="add-friend">Arkadaş Ekle</button>';
+            var str = '<button class="btn btn-primary" onclick="addFriend(this)" id="add-friend">Add to friend</button>';
             button.innerHTML = str;
         }
     }
