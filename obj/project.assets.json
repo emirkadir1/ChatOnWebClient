@@ -9730,19 +9730,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\onurk\\.nuget\\packages\\": {}
+    "C:\\Users\\Emir\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\onurk\\OneDrive\\Masaüstü\\ChatOnProje\\ChatOnWebClient\\ChatOnWebClient.csproj",
+      "projectUniqueName": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\ChatOnWebClient.csproj",
       "projectName": "ChatOnWebClient",
-      "projectPath": "C:\\Users\\onurk\\OneDrive\\Masaüstü\\ChatOnProje\\ChatOnWebClient\\ChatOnWebClient.csproj",
-      "packagesPath": "C:\\Users\\onurk\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\onurk\\OneDrive\\Masaüstü\\ChatOnProje\\ChatOnWebClient\\obj\\",
+      "projectPath": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\ChatOnWebClient.csproj",
+      "packagesPath": "C:\\Users\\Emir\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\onurk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Emir\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
