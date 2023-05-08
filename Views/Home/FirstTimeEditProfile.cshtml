@@ -39,60 +39,20 @@
             <input type="tel" class="form-control" id="phoneNumber" name="phone" placeholder="0555-555-5555" pattern="[0]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
             <br />
             <input type="date" class="form-control" id="birthDate" value="2002-04-23" min="1950-01-01" max="2012-12-31" />
-            <br />
+            <br />           
+            <input type="text" name="" class="form-control" placeholder="Your Main Language" id="language">
+            <br/>
             <button class="btn btn-dark btn-block" id="SetProfile">Set Profile</button>
-
         </div>
 
     </div>
 
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+@section scripts{
 <script>
     var UserName = '@ViewBag.UserName';
     var imgUrl = "";
-    function getImgUrl(img) {
-
-        imgUrl = img.getAttribute('src'); // tıklanan resmin image url'sini al
-        document.getElementById('sideImage').src = imgUrl;
-        console.log("Resim URL'si: " + imgUrl);
-        // burada istediğiniz şekilde image url stringini kullanabilirsiniz
-    }
-    document.getElementById("SetProfile").addEventListener("click", function (event) {
-        var firstName = document.getElementById("firstName").value;
-        var lastName = document.getElementById("lastName").value;;
-        var phoneNumber = document.getElementById("phoneNumber").value;
-        var dateInput = document.getElementById("birthDate");
-        var date = new Date(dateInput.value);
-        var birthDate = date.toLocaleDateString();
-        sendEditRequest(firstName, lastName, birthDate, phoneNumber);
-
-        event.preventDefault();
-    });
-    //Send EditProfileRequest to Api
-    function sendEditRequest(firstName, lastName, birthDate, phoneNumber) {
-        var apiUrl = 'https://localhost:7212/api/User/setprofile'; // WebApi adresi
-
-        // Kullanıcı adı ve şifre bilgilerini JSON formatına dönüştürün
-        var requestData = { userName: UserName, firstName: firstName, lastName: lastName, imageUrl: imgUrl, birthDate: birthDate, phoneNumber: phoneNumber };
-        var jsonData = JSON.stringify(requestData);
-
-        // HTTP POST isteği oluşturun ve isteği gönderin
-        $.ajax({
-            url: apiUrl,
-            type: 'POST',
-            contentType: 'application/json',
-            data: jsonData,
-            success: function (responseData) {
-
-                window.location.href = `/Home/Message`;
-            },
-            error: function (errorData) {
-                // İşlem hatalı olduğunda yapılacak işlemleri burada tanımlayabilirsiniz.
-                alert('Register işlemi başarısız oldu. Lütfen kullanıcı adı ve şifrenizi kontrol edin.' + errorData);
-            }
-        });
-    }
-
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="~/js/firstTimeEdit.js"></script>
+}

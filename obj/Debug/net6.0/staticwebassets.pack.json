@@ -137,6 +137,10 @@
       "PackagePath": "staticwebassets\\css\\chat.css"
     },
     {
+      "Id": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\css\\chat2.css",
+      "PackagePath": "staticwebassets\\css\\chat2.css"
+    },
+    {
       "Id": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\css\\friendship.css",
       "PackagePath": "staticwebassets\\css\\friendship.css"
     },
@@ -221,12 +225,12 @@
       "PackagePath": "staticwebassets\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\js\\chat.js",
-      "PackagePath": "staticwebassets\\js\\chat.js"
-    },
-    {
       "Id": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\js\\editprofile.js",
       "PackagePath": "staticwebassets\\js\\editprofile.js"
+    },
+    {
+      "Id": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\js\\firstTimeEdit.js",
+      "PackagePath": "staticwebassets\\js\\firstTimeEdit.js"
     },
     {
       "Id": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\js\\login-register.js",

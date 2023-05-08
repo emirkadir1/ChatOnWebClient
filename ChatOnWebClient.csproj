@@ -7,12 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\js\chat2.js" />
     <Content Remove="wwwroot\js\friend.js" />
+    <Content Remove="wwwroot\js\layout.js" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\js\layout.js" />
+    <None Include="wwwroot\js\chat2.js" />
     <None Include="wwwroot\js\friend.js" />
-    <None Include="wwwroot\js\chat.js" />
     <None Include="wwwroot\js\message.js" />
     <None Include="wwwroot\js\signalr\dist\browser\signalr.js" />
     <None Include="wwwroot\js\signalr\dist\browser\signalr.min.js" />

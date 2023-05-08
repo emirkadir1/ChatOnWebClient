@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "37PLDp1W2uz87EqGVi/9qPG4KhWjjjgo+UWs9dtwBhk=",
+  "Hash": "tfwH6md6lPA3hp6oICQAeTKgKz5flCMQ0YzDHj0IAxI=",
   "Source": "ChatOnWebClient",
   "BasePath": "_content/ChatOnWebClient",
   "Mode": "Default",
@@ -612,6 +612,23 @@
       "OriginalItemSpec": "wwwroot\\css\\chat.css"
     },
     {
+      "Identity": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\css\\chat2.css",
+      "SourceId": "ChatOnWebClient",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\",
+      "BasePath": "_content/ChatOnWebClient",
+      "RelativePath": "css/chat2.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\chat2.css"
+    },
+    {
       "Identity": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\css\\friendship.css",
       "SourceId": "ChatOnWebClient",
       "SourceType": "Discovered",
@@ -969,23 +986,6 @@
       "OriginalItemSpec": "wwwroot\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\js\\chat.js",
-      "SourceId": "ChatOnWebClient",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\",
-      "BasePath": "_content/ChatOnWebClient",
-      "RelativePath": "js/chat.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\chat.js"
-    },
-    {
       "Identity": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\js\\editprofile.js",
       "SourceId": "ChatOnWebClient",
       "SourceType": "Discovered",
@@ -1001,6 +1001,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\editprofile.js"
+    },
+    {
+      "Identity": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\js\\firstTimeEdit.js",
+      "SourceId": "ChatOnWebClient",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\",
+      "BasePath": "_content/ChatOnWebClient",
+      "RelativePath": "js/firstTimeEdit.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\firstTimeEdit.js"
     },
     {
       "Identity": "C:\\Users\\Emir\\Desktop\\ChatOnWebClient\\wwwroot\\js\\login-register.js",

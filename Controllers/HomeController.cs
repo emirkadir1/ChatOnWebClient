@@ -28,7 +28,7 @@ namespace ChatOnWebClient.Controllers
             ClaimsPrincipal claimUser = HttpContext.User;
             if (claimUser.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Message");
+                return RedirectToAction("HomePage");
             }
             
             var response = await _httpClient.GetAsync("https://localhost:7212/api/user/auto-login");
@@ -61,7 +61,7 @@ namespace ChatOnWebClient.Controllers
                         //Http Client For Api Requests
                         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwt);
                     }
-                    return RedirectToAction("Message");
+                    return RedirectToAction("HomePage");
                 }
 
             }
@@ -104,7 +104,7 @@ namespace ChatOnWebClient.Controllers
                     SignIn(nameClaim.Value,jwt);
                     //Http Client For Api Requests
                 }
-                return RedirectToAction("Message");
+                return RedirectToAction("HomePage");
 
             }
 
@@ -149,7 +149,6 @@ namespace ChatOnWebClient.Controllers
                     //Sign In in Client
                     SignIn(nameClaim.Value, jwt);
                     //Http Client For Api Requests
-                    _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwt);
                 }
                 return RedirectToAction("FirstTimeEditProfile");
 
@@ -180,26 +179,9 @@ namespace ChatOnWebClient.Controllers
             await _httpClient.GetAsync("https://localhost:7212/api/user/delete-refresh-token");
             return RedirectToAction("Index");
         }
-        public IActionResult FirstTimeEditProfile()
+        public async Task<IActionResult> FirstTimeEditProfile()
         {
             var userName = HttpContext.User.Identity.Name;
-            if (userName != null)
-            {
-                ViewBag.UserName = userName;
-            }
-            return View();
-        }
-        public IActionResult SetProfile()
-        {
-            return RedirectToAction("FirstTimeEditProfile");
-        }
-
-        //Sign In Olmuş Kullanıcı
-        [Authorize]
-        public async Task<IActionResult> Message()
-        {
-
-            var userName= HttpContext.User.Identity.Name;
             if (userName != null)
             {
                 ViewBag.UserName = userName;
@@ -208,7 +190,28 @@ namespace ChatOnWebClient.Controllers
             string content = await getUser.Content.ReadAsStringAsync();
             User user = JsonConvert.DeserializeObject<User>(content);
             ViewBag.User = user;
-            return View();
+            ViewBag.UserName = user.UserName;
+            return View(user);
+        }
+        public IActionResult SetProfile()
+        {
+            return RedirectToAction("FirstTimeEditProfile");
+        }
+
+        //Sign In Olmuş Kullanıcı
+        [Authorize]
+        public  async Task<IActionResult> Message()
+        {
+            var userName = HttpContext.User.Identity.Name;
+            if (userName != null)
+            {
+                ViewBag.UserName = userName;
+            }
+            var getUser = await _httpClient.GetAsync($"https://localhost:7212/api/User/{userName}");
+            string content = await getUser.Content.ReadAsStringAsync();
+            User user = JsonConvert.DeserializeObject<User>(content);
+            ViewBag.User = user;
+            return View(); 
         }
         [Authorize]
         [Route("{userName}")]
@@ -267,6 +270,18 @@ namespace ChatOnWebClient.Controllers
             ViewBag.User = user;
             return View();
         }
-
+        public async Task<IActionResult> HomePage()
+        {
+            var userName = HttpContext.User.Identity.Name;
+            if (userName != null)
+            {
+                ViewBag.UserName = userName;
+            }
+            var getUser = await _httpClient.GetAsync($"https://localhost:7212/api/User/{userName}");
+            string content = await getUser.Content.ReadAsStringAsync();
+            User user = JsonConvert.DeserializeObject<User>(content);
+            ViewBag.User = user;
+            return View();
+        }
     }
 }
