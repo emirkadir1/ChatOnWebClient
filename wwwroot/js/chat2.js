@@ -116,7 +116,7 @@ connection.on("ReceiveMessageMine", function (user, message, time, messageStatus
                                 </div>
                                 <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3" style="width:300px;overflow:auto">
                                     <div class="font-weight-bold mb-1">You</div>${message} \n ${translate}</div>
-                                <div>
+                                <div style="margin-block-start:auto;">
                                     <i class='fas fa-angle-left' style='font-size:20px;color:lightslategrey'></i>
                                 </div>
                             </div>`;
@@ -129,7 +129,7 @@ connection.on("ReceiveMessageMine", function (user, message, time, messageStatus
                                 </div>
                                 <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3" style="width:300px;overflow:auto">
                                     <div class="font-weight-bold mb-1">You</div>${message} \n ${translate}</div>
-                                <div>
+                               <div style="margin-block-start:auto;">
                                     <i class='fas fa-angle-double-left' style='font-size:20px;color:lightslategrey'></i>
                                 </div>
                             </div>`;
@@ -142,7 +142,7 @@ connection.on("ReceiveMessageMine", function (user, message, time, messageStatus
                                 </div>
                                 <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3" style="width:300px;overflow:auto">
                                     <div class="font-weight-bold mb-1">You</div>${message} \n ${translate}</div>
-                                <div>
+                                <div style="margin-block-start:auto;">
                                     <i class='fas fa-angle-double-left' style='font-size:20px;color:blue'></i>
                                 </div>
                             </div>`;
@@ -228,8 +228,8 @@ connection.on("ShowMessages", function (messages) {
                                     <div class="text-muted small text-nowrap mt-2">${message.createdTime}</div>
                                 </div>
                                 <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3" style="width:300px;overflow:auto">
-                                    <div class="font-weight-bold mb-1">You</div>${message.body} \n ${message.translated}</div>
-                                <div>
+                                    <div class="font-weight-bold mb-1">You</div>${message.body} \n ${message.translate}</div>
+                               <div style="margin-block-start:auto;">
                                     <i class='fas fa-angle-left' style='font-size:20px;color:lightslategrey'></i>
                                 </div>
                             </div>`;
@@ -241,8 +241,8 @@ connection.on("ShowMessages", function (messages) {
                                     <div class="text-muted small text-nowrap mt-2">${message.createdTime}</div>
                                 </div>
                                 <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3" style="width:300px;overflow:auto">
-                                    <div class="font-weight-bold mb-1">You</div>${message.body} \n ${message.translated}</div>
-                                <div>
+                                    <div class="font-weight-bold mb-1">You</div>${message.body} \n ${message.translate}</div>
+                                <div style="margin-block-start:auto;">
                                     <i class='fas fa-angle-double-left' style='font-size:20px;color:lightslategrey'></i>
                                 </div>
                             </div>`;
@@ -254,8 +254,8 @@ connection.on("ShowMessages", function (messages) {
                                     <div class="text-muted small text-nowrap mt-2">${message.createdTime}</div>
                                 </div>
                                 <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3" style="width:300px;overflow:auto">
-                                    <div class="font-weight-bold mb-1">You</div>${message.body} \n ${message.translated}</div>
-                                <div>
+                                    <div class="font-weight-bold mb-1">You</div>${message.body} \n ${message.translate}</div>
+                               <div style="margin-block-start:auto;">
                                     <i class='fas fa-angle-double-left' style='font-size:20px;color:blue'></i>
                                 </div>
                             </div>`;
@@ -271,7 +271,7 @@ connection.on("ShowMessages", function (messages) {
                                     <div class="text-muted small text-nowrap mt-2">${message.createdTime}</div>
                                 </div>
                                 <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3" style="width:300px;overflow:auto">
-                                    <div class="font-weight-bold mb-1">${message.sender.userName}</div>${message.body} \n ${message.translated}</div>
+                                    <div class="font-weight-bold mb-1">${message.sender.userName}</div>${message.body} \n ${message.translate}</div>
                             </div >`;
             listItem.innerHTML = str;
             document.getElementById("messagesList").appendChild(listItem);
@@ -305,8 +305,18 @@ function getUser(user) {
                                 <strong><a href="/${user.querySelector("div#userName").innerHTML}"> ${user.querySelector("div#userName").innerHTML}</a></strong>
                                 
                             </div>
-                            <div>                                
-                                <button class="btn btn-light border btn-lg px-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal feather-lg"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button>
+                             <button class="btn btn-success border btn-lg px-3"><i class="fa fa-bell" aria-hidden="true"></i></button>
+                             <button class="btn btn-warning border btn-lg px-3"><i class="fa fa-bell-slash" aria-hidden="true"></i></button>
+                             <button class="btn btn-danger border btn-lg px-3"><i class="fa fa-user-times" aria-hidden="true"></i></button>
+                            <div class="dropdown">                                
+                                <button class="btn btn-light border btn-lg px-4"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal feather-lg"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+  </button><div class="dropdown-menu"style="min-width:5px;" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#"><span class="flag-icon flag-icon-tr flag-icon-squared"></span>  TR</a>
+    <a class="dropdown-item" href="#"><span class="flag-icon flag-icon-gb flag-icon-squared"></span>  EN</a>
+    <a class="dropdown-item" href="#"><span class="flag-icon flag-icon-de flag-icon-squared"></span>  DE</a>
+    <a class="dropdown-item" href="#"><span class="flag-icon flag-icon-fr flag-icon-squared"></span>  FR</a>
+  </div>
+</div>
                             </div>`;
     // burada istediğiniz şekilde image url stringini kullanabilirsiniz
     document.getElementById("userHeader").innerHTML = header;

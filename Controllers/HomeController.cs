@@ -283,5 +283,18 @@ namespace ChatOnWebClient.Controllers
             ViewBag.User = user;
             return View();
         }
+        public async Task<IActionResult> Friends()
+        {
+            var userName = HttpContext.User.Identity.Name;
+            if (userName != null)
+            {
+                ViewBag.UserName = userName;
+            }
+            var getUser = await _httpClient.GetAsync($"https://localhost:7212/api/User/{userName}");
+            string content = await getUser.Content.ReadAsStringAsync();
+            User user = JsonConvert.DeserializeObject<User>(content);
+            ViewBag.User = user;
+            return View();
+        }
     }
 }
