@@ -2,6 +2,8 @@
 
 var connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:7212/ChatHub").withAutomaticReconnect().build();
 var targetUser = "";
+
+
 //Log In in start
 connection.start().then(function () {
 
@@ -31,6 +33,8 @@ connection.on("Users", function (usersList) {
                                 <div id="status">
                                 <div class="small"><span class="fa fa-circle online"></span> Online</div>
                                 </div>
+                                    <div id="sideMessage">
+                                    </div>
                             </div>
                         </div>
                     </div>`
@@ -45,6 +49,9 @@ connection.on("Users", function (usersList) {
                             <div id="status">
                                 <div class="small"><span class="fa fa-circle offline"></span> Offline</div>
                             </div>
+                                <div id="sideMessage">
+
+                                </div>
                             </div>
                         </div>
                     </div>`
@@ -54,6 +61,7 @@ connection.on("Users", function (usersList) {
         userList.appendChild(listItem);
     });
 });
+
 connection.on("Notification", function (notificationList) {
     console.log("oldu");
     const messageBox = document.getElementById("messageBox");
@@ -106,6 +114,11 @@ connection.on("IAmOffline", function (user) {
 
     }
 });
+//User filter
+// search inputunu ve ul etiketini yakala
+const searchInput = document.getElementById('searchInput');
+const _userList = document.getElementById('Users');
+
 connection.on("ReceiveMessageMine", function (user, message, time, messageStatus,translate) {
     var div = document.createElement("div");
     if (messageStatus == 0) {
@@ -149,29 +162,26 @@ connection.on("ReceiveMessageMine", function (user, message, time, messageStatus
     }
     document.getElementById("messagesList").appendChild(div);
     div.innerHTML = str;
+    let element = document.getElementById("messagesList");
+    let scrollHeight = element.scrollHeight;
+    element.scrollTop = scrollHeight;
     var notificationSound = document.getElementById("notificationSound");
-    notificationSound.play();
-    // Tüm li elementleri seç
-    var liElements = document.querySelectorAll("li#user");
-
-    // li elementlerini döngüyle gez
-    for (var i = 0; i < liElements.length; i++) {
-        // Seçilen li elementindeki userName div'ini seç
-        var userNameDiv = liElements[i].querySelector("div#userName");
-
-        // Seçilen kullanıcının userName etiketiyle eşleşiyorsa
-        if (userNameDiv.textContent === targetUser) {
-            // Li elementinin sideMessage div'inin textcontent'ini değiştir
-            var sideMessageDiv = liElements[i].querySelector("div#sideMessage");
-            if (message.length < 14)
-            {
-                sideMessageDiv.textContent = '\n ' + message.substring(0, 12);
-            }
-            else {
-                sideMessageDiv.textContent = '\n ' + message.substring(0, 12) + '...';
-            }
-            
-        }
+    notificationSound.play();   
+    for (let i = 0; i < _userList.childNodes.length; i++)
+    {
+            const _user = _userList.children[i];
+            const userName = _user.querySelector('#userName');
+            var sideMessageDiv = _user.querySelector('#sideMessage');
+            // girilen değer ile userName içindeki text karşılaştır
+            if (userName.textContent==targetUser) {
+                if (message.length < 14) {
+                    sideMessageDiv.textContent = '\n ' + message.substring(0, 12);
+                }
+                else {
+                    sideMessageDiv.textContent = '\n ' + message.substring(0, 12) + '...';
+                }
+            } 
+        
     }
 
 });
@@ -212,6 +222,7 @@ connection.on("ReceiveMessageFromOthers", function (user, message, time,translat
          
         }
     }
+
 });
 
 
@@ -283,17 +294,30 @@ connection.on("ShowMessages", function (messages) {
         div.innerHTML = str;
         document.getElementById("messagesList").appendChild(div);
     }
+    let element = document.getElementById("messagesList");
+    let scrollHeight = element.scrollHeight;
+    element.scrollTop = scrollHeight;
 });
-
+//Is message get translated?
+var translate = false;
 // Send Message
 document.getElementById("sendButton").addEventListener("click", function (event) {
     var message = document.getElementById("messageInput").value;
-    connection.invoke("SendMessage", joinedUser, targetUser,message).catch(function (err) {
+    connection.invoke("SendMessage", joinedUser, targetUser,message,translate).catch(function (err) {
             return console.error(err.toString());
         });
     event.preventDefault();
 });
 
+function translateMode(_switch) {
+    if (translate) {
+        translate = false;
+    }
+    else {
+        translate = true;
+    }
+    console.log(translate);
+}   
 //Current User
 function getUser(user) {
     var _user = user // tıklanan resmin image url'sini al
@@ -309,15 +333,20 @@ function getUser(user) {
                              <button class="btn btn-warning border btn-lg px-3"><i class="fa fa-bell-slash" aria-hidden="true"></i></button>
                              <button class="btn btn-danger border btn-lg px-3"><i class="fa fa-user-times" aria-hidden="true"></i></button>
                             <div class="dropdown">                                
-                                <button class="btn btn-light border btn-lg px-4"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal feather-lg"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
-  </button><div class="dropdown-menu"style="min-width:5px;" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#"><span class="flag-icon flag-icon-tr flag-icon-squared"></span>  TR</a>
-    <a class="dropdown-item" href="#"><span class="flag-icon flag-icon-gb flag-icon-squared"></span>  EN</a>
-    <a class="dropdown-item" href="#"><span class="flag-icon flag-icon-de flag-icon-squared"></span>  DE</a>
-    <a class="dropdown-item" href="#"><span class="flag-icon flag-icon-fr flag-icon-squared"></span>  FR</a>
-  </div>
+                                <button class="btn btn-light border btn-lg px-4"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal feather-lg"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+    </button><ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownMenuButton">
+
+    <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" onclick="translateMode(this)" id="translateSwitch">
+    <label class="form-check-label" for="flexSwitchCheckDefault">Çeviri Modu</label>
+    </div>
+    </ul>
 </div>
                             </div>`;
+                            /* <a class="dropdown-item" href="#"><span class="flag-icon flag-icon-tr flag-icon-squared"></span>  TR</a>
+    <a class="dropdown-item" href="#"><span class="flag-icon flag-icon-gb flag-icon-squared"></span>  EN</a>
+    <a class="dropdown-item" href="#"><span class="flag-icon flag-icon-de flag-icon-squared"></span>  DE</a>
+    <a class="dropdown-item" href="#"><span class="flag-icon flag-icon-fr flag-icon-squared"></span>  FR</a>*/ 
     // burada istediğiniz şekilde image url stringini kullanabilirsiniz
     document.getElementById("userHeader").innerHTML = header;
     if (joinedUser != '' && targetUser != '') {
@@ -326,12 +355,6 @@ function getUser(user) {
         });
     }
 }
-
-//User filter
-// search inputunu ve ul etiketini yakala
-const searchInput = document.getElementById('searchInput');
-const _userList = document.getElementById('Users');
-
 // search inputunda herhangi bir değer değiştiğinde çalışacak fonksiyonu tanımla
 searchInput.addEventListener('input', function (event) {
     // girilen değeri al
