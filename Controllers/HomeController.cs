@@ -104,6 +104,7 @@ namespace ChatOnWebClient.Controllers
                     SignIn(nameClaim.Value,jwt);
                     //Http Client For Api Requests
                 }
+
                 return RedirectToAction("HomePage");
 
             }

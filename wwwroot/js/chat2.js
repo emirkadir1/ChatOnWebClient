@@ -18,14 +18,21 @@ connection.start().then(function () {
     return console.error(err.toString());
 }); 
 //All Users
-connection.on("Users", function (usersList) {
+connection.on("Users", function (usersList,notificationList) {
     const userList = document.getElementById("Users");
     userList.innerHTML = "";
     usersList.forEach(function (user) {
         const listItem = document.createElement("div");
+        var notification = 0;
+        for (var i = 0; i < notificationList.length; i++) {
+            if (notificationList[i].sender==user.userName) {
+                notification += 1;
+            }
+        }
         if (user.online) {
-            var str = `<div class="list-group-item list-group-item-action border-0" onclick="getUser(this)">
-                        <div class="badge bg-success float-right" id="messageCount">5</div>
+            if (notification > 0) {
+                var str = `<div class="list-group-item list-group-item-action border-0" onclick="getUser(this)">
+                        <div class="badge bg-success float-right" id="messageCount">${notification}</div>
                         <div class="d-flex align-items-start">
                             <img src="${user.imageUrl}" class="rounded-circle mr-1" alt="${user.userName}" width="40" height="40" id="image">
                             <div class="flex-grow-1 ml-3">
@@ -38,29 +45,69 @@ connection.on("Users", function (usersList) {
                             </div>
                         </div>
                     </div>`
-        }
-        else {
-            var str = `<div class="list-group-item list-group-item-action border-0" onclick="getUser(this)">
-                        <div class="badge bg-success float-right" id="messageCount">5</div>
+
+            }
+            else {
+                var str = `<div class="list-group-item list-group-item-action border-0" onclick="getUser(this)">
+                        <div class="badge bg-success float-right" id="messageCount" style="display:none;">${notification}</div>
                         <div class="d-flex align-items-start">
                             <img src="${user.imageUrl}" class="rounded-circle mr-1" alt="${user.userName}" width="40" height="40" id="image">
                             <div class="flex-grow-1 ml-3">
-                            <div id="userName">${user.userName}</div>
-                            <div id="status">
-                                <div class="small"><span class="fa fa-circle offline"></span> Offline</div>
-                            </div>
-                                <div id="sideMessage">
-
+                                <div id="userName">${user.userName}</div>
+                                <div id="status">
+                                <div class="small"><span class="fa fa-circle online"></span> Online</div>
                                 </div>
+                                    <div id="sideMessage">
+                                    </div>
                             </div>
                         </div>
                     </div>`
+            }
+            
+        }
+        else {
+            if (notification>0) {
+                var str = `<div class="list-group-item list-group-item-action border-0" onclick="getUser(this)">
+                        <div class="badge bg-success float-right" id="messageCount">${notification}</div>
+                        <div class="d-flex align-items-start">
+                            <img src="${user.imageUrl}" class="rounded-circle mr-1" alt="${user.userName}" width="40" height="40" id="image">
+                            <div class="flex-grow-1 ml-3">
+                                <div id="userName">${user.userName}</div>
+                                <div id="status">
+                                <div class="small"><span class="fa fa-circle online"></span> Online</div>
+                                </div>
+                                    <div id="sideMessage">
+                                    </div>
+                            </div>
+                        </div>
+                    </div>`
+            }
+            else {
+                var str = `<div class="list-group-item list-group-item-action border-0" onclick="getUser(this)">
+                        <div class="badge bg-success float-right" id="messageCount" style="display:none;">${notification}</div>
+                        <div class="d-flex align-items-start">
+                            <img src="${user.imageUrl}" class="rounded-circle mr-1" alt="${user.userName}" width="40" height="40" id="image">
+                            <div class="flex-grow-1 ml-3">
+                                <div id="userName">${user.userName}</div>
+                                <div id="status">
+                                <div class="small"><span class="fa fa-circle online"></span> Online</div>
+                                </div>
+                                    <div id="sideMessage">
+                                    </div>
+                            </div>
+                        </div>
+                    </div>`
+            }
         }
         listItem.id = "User";
         listItem.innerHTML = str;
         userList.appendChild(listItem);
     });
 });
+//User filter
+// search inputunu ve ul etiketini yakala
+const searchInput = document.getElementById('searchInput');
+const _userList = document.getElementById('Users');
 
 connection.on("Notification", function (notificationList) {
     console.log("oldu");
@@ -83,12 +130,48 @@ connection.on("Notification", function (notificationList) {
         messageBox.innerHTML = "";
         messageBox.appendChild(div);
     }
+    else {
+        messageBox.innerHTML = "";
+    }
     if (friendNotification > 0) {
         var div = document.createElement("div");
         var str = `<i class='far fa-comment-dots' style='font-size:24px;color:orangered'>${friendNotification}</i>`;
         div.innerHTML = str;
         friendBox.innerHTML = "";
         friendBox.appendChild(div);
+    }
+    else {
+        friendBox.innerHTML = "";
+    }
+
+});
+connection.on("GetNotification", function (userName) {
+    for (let i = 0; i < _userList.childNodes.length; i++) {
+        const _user = _userList.children[i];
+        const _userName = _user.querySelector('#userName');
+        // girilen değer ile userName içindeki text karşılaştır
+        if (_userName.innerText.trim()==userName.trim()) {            
+            var messageCount = _user.querySelector('#messageCount');
+            messageCount.style.display = 'block';
+            var count = messageCount.innerText;
+            var number = parseInt(count);
+            number += 1;
+            messageCount.innerText = number;
+
+        }
+    }
+});
+connection.on("DeleteNotification", function (userName) {
+    for (let i = 0; i < _userList.childNodes.length; i++) {
+        const _user = _userList.children[i];
+        const _userName = _user.querySelector('#userName');
+        // girilen değer ile userName içindeki text karşılaştır
+        if (_userName.innerText.trim() == userName.trim()) {
+            var messageCount = _user.querySelector('#messageCount');
+            messageCount.style.display = 'none';
+            messageCount.innerText = '0';
+            break;
+        }
     }
 });
 connection.on("IAmOnline", function (user) {
@@ -114,10 +197,6 @@ connection.on("IAmOffline", function (user) {
 
     }
 });
-//User filter
-// search inputunu ve ul etiketini yakala
-const searchInput = document.getElementById('searchInput');
-const _userList = document.getElementById('Users');
 
 connection.on("ReceiveMessageMine", function (user, message, time, messageStatus,translate) {
     var div = document.createElement("div");
@@ -230,16 +309,17 @@ connection.on("ReceiveMessageFromOthers", function (user, message, time,translat
 connection.on("ShowMessages", function (messages) {
     document.getElementById("messagesList").innerHTML = "";
     messages.forEach(function (message) {
-        if (message.sender.userName == joinedUser && message.reciver.userName == targetUser.trim()) {
+        if (message.sender == joinedUser && message.reciver == targetUser.trim()) {
             var listItem = document.createElement("div");
             if (message.isRecived == 0) {
                 var str = `<div class="chat-message-right pb-4">
                                 <div>
-                                    <img src="${message.sender.imageUrl}" class="rounded-circle mr-1" width="40" height="40">
+                                    <img src="${message.imageUrl}" class="rounded-circle mr-1" width="40" height="40">
                                     <div class="text-muted small text-nowrap mt-2">${message.createdTime}</div>
                                 </div>
                                 <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3" style="width:300px;overflow:auto">
-                                    <div class="font-weight-bold mb-1">You</div>${message.body} \n ${message.translate}</div>
+
+                                    <div class="font-weight-bold mb-1"><b>You</b></div>${message.body} \n ${message.translate}</div>
                                <div style="margin-block-start:auto;">
                                     <i class='fas fa-angle-left' style='font-size:20px;color:lightslategrey'></i>
                                 </div>
@@ -248,11 +328,11 @@ connection.on("ShowMessages", function (messages) {
             else if (message.isRecived == 1) {
                 var str = `<div class="chat-message-right pb-4">
                                 <div>
-                                    <img src="${message.sender.imageUrl}" class="rounded-circle mr-1" width="40" height="40">
+                                    <img src="${message.imageUrl}" class="rounded-circle mr-1" width="40" height="40">
                                     <div class="text-muted small text-nowrap mt-2">${message.createdTime}</div>
                                 </div>
                                 <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3" style="width:300px;overflow:auto">
-                                    <div class="font-weight-bold mb-1">You</div>${message.body} \n ${message.translate}</div>
+                                    <div class="font-weight-bold mb-1"><b>You</b></div>${message.body} \n ${message.translate}</div>
                                 <div style="margin-block-start:auto;">
                                     <i class='fas fa-angle-double-left' style='font-size:20px;color:lightslategrey'></i>
                                 </div>
@@ -261,11 +341,11 @@ connection.on("ShowMessages", function (messages) {
             else {
                 var str = `<div class="chat-message-right pb-4">
                                 <div>
-                                    <img src="${message.sender.imageUrl}" class="rounded-circle mr-1" width="40" height="40">
+                                    <img src="${message.imageUrl}" class="rounded-circle mr-1" width="40" height="40">
                                     <div class="text-muted small text-nowrap mt-2">${message.createdTime}</div>
                                 </div>
                                 <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3" style="width:300px;overflow:auto">
-                                    <div class="font-weight-bold mb-1">You</div>${message.body} \n ${message.translate}</div>
+                                    <div class="font-weight-bold mb-1"><b>You</b></div>${message.body} \n ${message.translate}</div>
                                <div style="margin-block-start:auto;">
                                     <i class='fas fa-angle-double-left' style='font-size:20px;color:blue'></i>
                                 </div>
@@ -274,15 +354,15 @@ connection.on("ShowMessages", function (messages) {
             listItem.innerHTML = str;
             document.getElementById("messagesList").appendChild(listItem);
         }
-        if (message.sender.userName == targetUser.trim() && message.reciver.userName == joinedUser) {
+        if (message.sender == targetUser.trim() && message.reciver == joinedUser) {
             var listItem = document.createElement("div");
             var str = `<div class="chat-message-left pb-4">
                                 <div>
-                                    <img src="${message.sender.imageUrl}" class="rounded-circle mr-1" width="40" height="40">
+                                    <img src="${message.imageUrl}" class="rounded-circle mr-1" width="40" height="40">
                                     <div class="text-muted small text-nowrap mt-2">${message.createdTime}</div>
                                 </div>
                                 <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3" style="width:300px;overflow:auto">
-                                    <div class="font-weight-bold mb-1">${message.sender.userName}</div>${message.body} \n ${message.translate}</div>
+                                    <div class="font-weight-bold mb-1"><b>${message.sender}</b></div>${message.body} \n ${message.translate}</div>
                             </div >`;
             listItem.innerHTML = str;
             document.getElementById("messagesList").appendChild(listItem);
@@ -320,7 +400,7 @@ function translateMode(_switch) {
 }   
 //Current User
 function getUser(user) {
-    var _user = user // tıklanan resmin image url'sini al
+
     targetUser = user.querySelector("div#userName").innerHTML;
     var header = `<div class="position-relative">
                                 <img src="${user.querySelector("img#image").src}" class="rounded-circle mr-1" width="40" height="40">
@@ -351,6 +431,9 @@ function getUser(user) {
     document.getElementById("userHeader").innerHTML = header;
     if (joinedUser != '' && targetUser != '') {
         connection.invoke("GetMessages", joinedUser, targetUser).catch(function (err) {
+            return console.error(err.toString());
+        });
+        connection.invoke("DeleteMessageNotification", joinedUser, targetUser).catch(function (err) {
             return console.error(err.toString());
         });
     }

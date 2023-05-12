@@ -9,6 +9,7 @@ namespace ChatOnWebApi.Services
     {
         public static string GetName(string token)
         {
+
             var tokenHandler = new JwtSecurityTokenHandler();
             // Token'ı doğrulayın
             var key = Encoding.UTF8.GetBytes("my top secret key");

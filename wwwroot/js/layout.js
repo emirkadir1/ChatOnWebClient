@@ -17,10 +17,10 @@ connection.on("Notification", function (notificationList) {
     var messageNotification = 0;
     var friendNotification = 0;
     notificationList.forEach(function (user) {
-        if (user.type =="message") {
+        if (user.type == "message") {
             messageNotification += 1;
         }
-        else if(user.type="friend"){
+        else if (user.type = "friend") {
             friendNotification += 1;
         }
     });
@@ -28,12 +28,21 @@ connection.on("Notification", function (notificationList) {
         var div = document.createElement("div");
         var str = `<i class='far fa-comment-dots' style='font-size:24px;color:orangered'>${messageNotification}</i>`;
         div.innerHTML = str;
+        messageBox.innerHTML = "";
         messageBox.appendChild(div);
+    }
+    else {
+        messageBox.innerHTML = "";
     }
     if (friendNotification > 0) {
         var div = document.createElement("div");
         var str = `<i class='far fa-comment-dots' style='font-size:24px;color:orangered'>${friendNotification}</i>`;
         div.innerHTML = str;
+        friendBox.innerHTML = "";
         friendBox.appendChild(div);
     }
+    else {
+        friendBox.innerHTML = "";
+    }
+
 });
