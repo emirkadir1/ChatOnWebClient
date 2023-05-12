@@ -31,7 +31,7 @@ namespace ChatOnWebClient.Controllers
                 return RedirectToAction("HomePage");
             }
             
-            var response = await _httpClient.GetAsync("https://localhost:7212/api/user/auto-login");
+           var response = await _httpClient.GetAsync("https://localhost:7212/api/user/auto-login");
             if (response.IsSuccessStatusCode)
             {
                 var tokenHandler = new JwtSecurityTokenHandler();
@@ -63,7 +63,7 @@ namespace ChatOnWebClient.Controllers
                     }
                     return RedirectToAction("HomePage");
                 }
-
+           
             }
             return View();
 
