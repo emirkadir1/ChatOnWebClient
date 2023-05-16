@@ -11,7 +11,8 @@ connection.start().then(function () {
     return console.error(err.toString());
 });
 //All Users
-connection.on("Users", function (usersList, friendsList, friendRequest) {
+connection.on("Users", function (usersList, friendsList, sendedRequests, recievedRequests)
+{
     const userList = document.getElementById("Users");
     userList.innerHTML = "";
     for (var i = 0; i < friendsList.length; i++) {
@@ -46,10 +47,10 @@ connection.on("Users", function (usersList, friendsList, friendRequest) {
                 usersList.splice(j, 1);
             }
         }
-    }
-    for (var i = 0; i < friendRequest.length; i++) {
+    }    
+    for (var i = 0; i < sendedRequests.length; i++) {
         for (var j = 0; j < usersList.length; j++) {
-            if (friendRequest[i].sender.userName == joinedUser && friendRequest[i].reciever.userName == usersList[j].userName) {
+            if (sendedRequests[i].userName == usersList[j].userName) {
                 const listItem = document.createElement("tr");
                 listItem.classList.add("candidates-list");
                 var str = `                            
@@ -78,10 +79,17 @@ connection.on("Users", function (usersList, friendsList, friendRequest) {
                 userList.appendChild(listItem);
                 usersList.splice(j, 1);
             }
-            else if (friendRequest[i].sender.userName == usersList[j].userName && friendRequest[i].reciever.userName == joinedUser) {
-                const listItem = document.createElement("tr");
-                listItem.classList.add("candidates-list");
-                var str = `                            
+        }
+    }
+    for (var i = 0; i < recievedRequests.length; i++)
+    {
+        for (var j = 0; j < usersList.length; j++)
+        {
+            if (recievedRequests[i].userName == usersList[j].userName) 
+                    {
+                    const listItem = document.createElement("tr");
+                    listItem.classList.add("candidates-list");
+                    var str = `                            
                              <td class="title">
                                  <div class="thumb">
                                      <img class="img-fluid" src="${usersList[j].imageUrl}">
@@ -103,18 +111,18 @@ connection.on("Users", function (usersList, friendsList, friendRequest) {
                                     <button class="btn btn-dark" onclick="accept(this)" id="accept-friend">Accept</button>
                              </td>                             
                         `
-                listItem.innerHTML = str;
-                userList.appendChild(listItem);
-                usersList.splice(j, 1);
+                    listItem.innerHTML = str;
+                    userList.appendChild(listItem);
+                    usersList.splice(j, 1);
+                    }
             }
-        }
-    }
-    usersList.forEach(function (user) {
+    }    
+    usersList.forEach(function (user)
+        {
         const listItem = document.createElement("tr");
-        if (user.userName == joinedUser) {
-
-        }
-        else {
+        if (user.userName == joinedUser) { }
+        else
+        {
             listItem.classList.add("candidates-list");
             var str = `
                             

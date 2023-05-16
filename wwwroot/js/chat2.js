@@ -74,7 +74,7 @@ connection.on("Users", function (usersList,notificationList) {
                             <div class="flex-grow-1 ml-3">
                                 <div id="userName">${user.userName}</div>
                                 <div id="status">
-                                <div class="small"><span class="fa fa-circle online"></span> Online</div>
+                                <div class="small"><span class="fa fa-circle offline"></span> Offline</div>
                                 </div>
                                     <div id="sideMessage">
                                     </div>
@@ -90,7 +90,7 @@ connection.on("Users", function (usersList,notificationList) {
                             <div class="flex-grow-1 ml-3">
                                 <div id="userName">${user.userName}</div>
                                 <div id="status">
-                                <div class="small"><span class="fa fa-circle online"></span> Online</div>
+                                <div class="small"><span class="fa fa-circle offline"></span> Offline</div>
                                 </div>
                                     <div id="sideMessage">
                                     </div>
@@ -207,7 +207,7 @@ connection.on("ReceiveMessageMine", function (user, message, time, messageStatus
                                     <div class="text-muted small text-nowrap mt-2">${time}</div>
                                 </div>
                                 <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3" style="width:300px;overflow:auto">
-                                    <div class="font-weight-bold mb-1">You</div>${message} \n ${translate}</div>
+                                    <div class="font-weight-bold mb-1"><b>You</b></div>${message} \n ${translate}</div>
                                 <div style="margin-block-start:auto;">
                                     <i class='fas fa-angle-left' style='font-size:20px;color:lightslategrey'></i>
                                 </div>
@@ -220,7 +220,7 @@ connection.on("ReceiveMessageMine", function (user, message, time, messageStatus
                                     <div class="text-muted small text-nowrap mt-2">${time}</div>
                                 </div>
                                 <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3" style="width:300px;overflow:auto">
-                                    <div class="font-weight-bold mb-1">You</div>${message} \n ${translate}</div>
+                                    <div class="font-weight-bold mb-1"><b>You</b></div>${message} \n ${translate}</div>
                                <div style="margin-block-start:auto;">
                                     <i class='fas fa-angle-double-left' style='font-size:20px;color:lightslategrey'></i>
                                 </div>
@@ -233,7 +233,7 @@ connection.on("ReceiveMessageMine", function (user, message, time, messageStatus
                                     <div class="text-muted small text-nowrap mt-2">${time}</div>
                                 </div>
                                 <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3" style="width:300px;overflow:auto">
-                                    <div class="font-weight-bold mb-1">You</div>${message} \n ${translate}</div>
+                                    <div class="font-weight-bold mb-1"><b>You</b></div>${message} \n ${translate}</div>
                                 <div style="margin-block-start:auto;">
                                     <i class='fas fa-angle-double-left' style='font-size:20px;color:blue'></i>
                                 </div>
